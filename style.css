@@ -522,4 +522,55 @@ footer i {
 
 footer .social a{
     margin-right: 1rem;
+    transition: .3s;
+    display: inline-block;
 }
+footer .social a:hover {
+    transform: translateY(-8px);
+}
+
+/*  back to top */
+
+.backToTop {
+    background: var(--base-color);
+    color: var(--text-color-light);
+    border: 1px solid var(--body-color);
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+
+    padding: .5rem;
+    border-radius: 50%;
+
+    font-size: 1.5rem;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: .3s;
+    transform: translateY(100%);
+}
+
+.backToTop.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*  responsivo */
+
+
+/*  large devices: 1200 > */
+
+/*  large devices: 1024 */
+
+/* large devices: 992 > */
+@media (min-width: 992px) {
+    .title {
+        font-size: 2.25rem;
+    }
+
+}
+
+/* media devices: 767 > */

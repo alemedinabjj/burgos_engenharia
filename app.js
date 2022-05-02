@@ -24,7 +24,7 @@ for(const link of links) {
 const header = document.querySelector('.header')
 const navHeight = header.offsetHeight;
 
-window.addEventListener('scroll', function() {
+function changeHeaderWhenScroll() {
     if(window.scrollY >= navHeight){
         // scroll é maior que a altura do header
         header.classList.add('scroll')
@@ -32,8 +32,7 @@ window.addEventListener('scroll', function() {
         // se for menor que a altura do header
         header.classList.remove('scroll')
     }
-})
-
+}
 //  testimonials slider --- ! 
 
 const swiper = new Swiper('.swiper', {
@@ -65,3 +64,26 @@ scrollReveal.reveal(`
 
 
 {interval: 100})
+
+// botão de voltar ao topo (backToTop) !
+
+const btnTop = document.querySelector('.backToTop')
+
+function backTop(){
+
+    if(scrollY >= 560) {
+        btnTop.classList.add('show')
+    }else {
+        btnTop.classList.remove('show')
+    }
+
+
+}
+
+
+// when scroll ... !
+
+window.addEventListener('scroll', function() {
+    changeHeaderWhenScroll()
+    backTop()
+})
