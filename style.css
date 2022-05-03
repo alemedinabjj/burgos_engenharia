@@ -223,7 +223,7 @@ nav .menu {
 /* -------------------------/ /TOGGLE MENU------- */
 
 .section {
-    padding: 5rem 0;
+    padding: calc(5rem + var(--header-height)) 0;
 }
 .section header {
     margin-bottom: 4rem;
@@ -234,10 +234,11 @@ nav .menu {
 .section .title {
     margin-bottom: 1rem;
 }
-
-main {
-    margin-top: calc(var(--header-height) + 2rem);
+.section .subtitle {
+    font-size: var(--subtitle-font-size);
 }
+
+
 
 .section h1 {
     font-size: 1.87rem;
@@ -498,6 +499,9 @@ main {
 footer {
     background: var(--base-color);
 }
+footer.section {
+    padding: 4rem 0;
+}
 footer .logo-alt {
     display: inline-block;
     margin-bottom: 1.5rem;
@@ -519,9 +523,11 @@ footer i {
     font-size: 1.5rem;
     color: var(--text-color-light);
 }
-
+footer .social {
+    grid-auto-flow: column;
+    width: fit-content;
+}
 footer .social a{
-    margin-right: 1rem;
     transition: .3s;
     display: inline-block;
 }
@@ -562,13 +568,129 @@ footer .social a:hover {
 
 
 /*  large devices: 1200 > */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section {
+        padding: 10rem 0;
+    }
+    .section header,
+    #testimonials header {
+        max-width: 32rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .button {
+        height: 3.125rem;
+    }
+    .header.scroll .menu .title{
+        color: white;
+    }
+    .header.scroll nav ul li a::after {
+        background: var(--body-color);
+    }
+    nav .menu {
+        opacity: 1;
+        visibility: visible;
+        top:0;
+    }
+    nav .menu ul {
+        display: flex;
+        gap: 2rem;
+    }
 
+    nav .menu ul li a.title {
+        font: 500 1rem var(--title-font);
+        color: var(--title-color);
+    }
+    nav ul li a::after {
+        background: var(--title-color);
+    }
+  
+    nav .menu ul li a.active {
+        font-weight: bold;
+        -webkit-font-smoothing: auto;
+    }
+    nav .icon-menu {
+        display: none;
+    }
+    main {
+        margin-top: var(--header-height);
+    }
+    /* home */
+    #home .container {
+        grid-auto-flow: column;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    #home .image {
+        order:1;
+    }
+    #home .text {
+        order: 0;
+        max-width: 24rem;
+        text-align: left;
+    }
+
+    /* ABOUT  */
+    #about .container {
+        grid-auto-flow: column;
+        margin: 0 auto;
+    }
+    #about .image::before  {
+        height: 60%;
+    }
+
+    /* services */
+
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .card {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    /* testimonials */
+
+    #testimonials .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /* contact */
+    #contact .container {
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    #contact .text {
+        max-width: 25rem;
+    }
+
+    footer.section {
+        padding: 3.75rem 0;
+    }
+
+    footer .container {
+        grid-auto-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    footer .logo-alt {
+        font-size: 2rem;
+    }
+}
 /*  large devices: 1024 */
 
 /* large devices: 992 > */
 @media (min-width: 992px) {
-    .title {
-        font-size: 2.25rem;
+    :root {
+        --title-font-size: 2.25rem;
+        --subtitle-font-size: 1.125rem;
     }
 
 }
